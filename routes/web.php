@@ -8,10 +8,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Creating a new account
-Route::get('/register', [RegisteredUserController::class, 'create']);
-Route::post('/register', [RegisteredUserController::class, 'store']);
+Route::middleware('auth')->group(function () {
+    Route::delete('/logout', [SessionsController::class, 'destroy']);
+});
 
-// Loging into an existing account
-Route::get('/login', [SessionsController::class, 'create']);
-Route::post('/login', [SessionsController::class, 'store']);
+// The only allowed routes for a user who isnt authenticated
+Route::middleware('guest')->group(function () {
+    Route::get('/register', [RegisteredUserController::class, 'create']);
+    Route::post('/register', [RegisteredUserController::class, 'store']);
+    Route::get('/login', [SessionsController::class, 'create']);
+    Route::post('/login', [SessionsController::class, 'store']);
+});
