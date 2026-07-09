@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class RegisteredUserController extends Controller
 {
@@ -22,20 +22,20 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        dd(request()->all());
-
         $request->validate([
-
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users', 'email')],
+            'password' => ['required', 'string', 'min:8', 'max:255'],
         ]);
 
-        // $user = User::create([
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        //     'password' => Hash::make($request->password),
-        // ]);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+        ]);
 
-        // Auth::login($user);
+        Auth::login($user);
 
-        // return redirect('/register');
+        return redirect('/register')->with('success', 'Yo fire your registered now.');
     }
 }
