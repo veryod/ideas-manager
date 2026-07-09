@@ -13,7 +13,7 @@
       </div>
       <div class="account-functions flex">
         <li class="mr-6"><a class="text-blue-500 hover:underline" href="/users/edit">Account</a></li>
-        <form action="/signout" method="post">
+        <form action="/logout" method="post">
           @csrf
           @method('DELETE')
           <button class="text-red-500 hover:underline hover:cursor-pointer">Sign out</button>
