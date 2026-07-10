@@ -36,6 +36,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect('/register')->with('success', 'Yo fire your registered now.');
+        return redirect('/register')->with('success', 'Account successfully registered.');
     }
 }

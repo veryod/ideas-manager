@@ -26,12 +26,12 @@ class SessionsController extends Controller
         ]);
 
         if (!Auth::attempt($validated)) {
-            return back()->withErrors(['password', 'Something is wrong with your password dawg.'])->withInput();
+            return back()->withErrors(['password' => 'Unable to authenticate using provided credentials.'])->withInput();
         }
 
         $request->session()->regenerate();
 
-        return redirect()->intended('/')->with('success', 'Ayee, successful loging cuh.');
+        return redirect()->intended('/')->with('success', 'Login successful.');
     }
 
     /**
