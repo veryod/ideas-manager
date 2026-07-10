@@ -16,7 +16,7 @@
         <form action="/logout" method="post">
           @csrf
           @method('DELETE')
-          <button class="text-red-500 hover:underline hover:cursor-pointer">Sign out</button>
+          <button class="text-red-500 hover:underline hover:cursor-pointer" type="submit" data-test="logout-btn">Sign out</button>
         </form>
       </div>
     @endauth
