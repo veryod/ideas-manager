@@ -1,5 +1,5 @@
 <x-layouts.layout>
-    <form action="/register" method="post" class="form w-128">
+    <form action="/register" method="post" class="form w-128" autocomplete="off">
         <x-auth.field name="name" label="Name" type="text" placeholder="John Doe"></x-auth.field>
         <x-auth.field name="email" label="Email" type="email" placeholder="johndoe@gmail.com"></x-auth.field>        
         <x-auth.field name="password" label="Password" type="password" placeholder="**********"></x-aut.field>
