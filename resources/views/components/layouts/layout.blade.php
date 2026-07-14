@@ -6,7 +6,7 @@
     <title>Idea Tracker - Track and manage all of your ideas easily</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="flex flex-col">
+<body class="flex flex-col bg-gray-800 gap-8">
     <x-layouts.navbar></x-layouts.navbar>
     <main class="flex justify-center w-screen">
         {{ $slot }}

@@ -1,5 +1,5 @@
 <nav>
-  <ul class="flex p-8 flex justify-center gap-32">
+  <ul class="flex p-8 flex justify-between gap-32 text-2xl bg-gray-900">
     @guest
       <div class="login-functions flex">
         <li class="mr-6"><a class="text-blue-500 hover:underline" href="/register">Sign up</a></li>
