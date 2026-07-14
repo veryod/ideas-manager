@@ -14,14 +14,14 @@
 
             <div class="field">
                 <label for="status">Status</label>
-                <select name="status" id="status">
+                <select name="status" id="status" data-test="select-status">
                     <option value="pending">Pending</option>
                     <option value="in_progress">In progress</option>
                     <option value="completed">Completed</option>
                 </select>
             </div>
-            <div class="action">
-                <button type="submit" class="form-btn">Create</button>
+            <div class="actions">
+                <button class="form-btn" type="submit" data-test="create-btn">Create</button>
             </div>
         </form>
     </div>
