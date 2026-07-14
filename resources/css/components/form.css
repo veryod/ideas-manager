@@ -38,6 +38,23 @@ input {
     outline-offset: 2px;
 }
 
+textarea {
+    width: 100%; 
+    appearance: none; 
+    border-radius: 0.25rem; 
+    border-width: 1px; 
+    padding-left: 0.75rem; 
+    padding-right: 0.75rem; 
+    padding-top: 0.5rem; 
+    padding-bottom: 0.5rem; 
+    line-height: 1.25; 
+    color: gray; 
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 3px 0 rgb(0,0,0,0.1), 0 1px 2px -1px rgb(0,0,0,0.1); 
+    outline: 2px solid transparent; 
+    outline-offset: 2px;
+    resize: none;
+}
+
 .form-btn {
     border-radius: 0.25rem; 
     background-color: rgb(29,78,216); 
@@ -49,6 +66,15 @@ input {
     color: rgb(255,255,255); 
     outline: 2px solid transparent; 
     outline-offset: 2px;
+}
+
+select {
+    border-radius: 0.25rem; 
+    border-width: 1px;
+    color: gray;
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 3px 0 rgb(0,0,0,0.1), 0 1px 2px -1px rgb(0,0,0,0.1); 
+    padding: 4px 8px;
+    font-size: medium;
 }
 
 .form-btn:hover {
