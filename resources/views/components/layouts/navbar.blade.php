@@ -9,7 +9,7 @@
     @auth
       <div class="idea-functions flex">
         <li class="mr-6"><a class="text-blue-500 hover:underline" href="/ideas">Ideas</a></li>
-        <li class="mr-6"><a class="text-blue-500 hover:underline" href="/ideas/new">New</a></li>
+        <li class="mr-6"><a class="text-blue-500 hover:underline" href="/ideas/create">New</a></li>
       </div>
       <div class="account-functions flex">
         <li class="mr-6"><a class="text-blue-500 hover:underline" href="/users/edit">Account</a></li>
