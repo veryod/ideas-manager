@@ -18,6 +18,7 @@ class IdeaController extends Controller
         $ideas = Auth::user()
             ->ideas()
             ->when($request->status, fn($query, $status) => $query->where('status', $status))
+            ->latest()
             ->get();
 
         return view('ideas.index', ['ideas' => $ideas]);
@@ -28,7 +29,7 @@ class IdeaController extends Controller
      */
     public function create()
     {
-        // 
+        return view('ideas.create');
     }
 
     /**
@@ -36,7 +37,9 @@ class IdeaController extends Controller
      */
     public function store(StoreIdeaRequest $request)
     {
-        // 
+        $idea = Auth::user()->ideas()->create($request->validated());
+
+        return redirect("ideas/$idea->id")->with('success', 'Idea created.');
     }
 
     /**
