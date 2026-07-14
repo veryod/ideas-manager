@@ -1,12 +1,23 @@
 <x-layouts.layout>
-    <div class="max-w-xl bg-white rounded-lg shadow-sm dark:bg-gray-900">
+    <div class="max-w bg-white rounded-lg shadow-sm dark:bg-gray-900">
         <a href="#">
             <img class="rounded-t-lg" src="/images/blog/image-1.jpg" alt="" />
         </a>
         <div class="p-5">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $idea->title }}</h5>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $idea->description }}</p>
-
+            <div class="py-4">
+                <div class="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-100 mb-2">#{{ $idea->status->label() }}</div>
+                <div class="px-2 text-sm font-semibold text-gray-300">{{ $idea->created_at->diffForHumans() }}</div>
+            </div>
+            @if($idea->links->count() > 0)
+                <div class="pb-6 font-semibold text-gray-300">
+                    <h6 class="underline">Links</h6>
+                    @foreach($idea->links as $link)
+                        <a href="{{ $link }}" target="_blank" class="px-2 my-2">- {{ $link }}</a>
+                    @endforeach
+                </div>
+            @endif
             <div class="flex gap-4">
                 <form action="" method="post">
                     @method('DELETE')
