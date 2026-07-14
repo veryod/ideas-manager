@@ -31,7 +31,7 @@ class User extends Authenticatable
         ];
     }
 
-    public function posts(): HasMany
+    public function ideas(): HasMany
     {
         return $this->hasMany(Idea::class);
     }
