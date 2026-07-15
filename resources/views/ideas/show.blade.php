@@ -1,5 +1,5 @@
 <x-layouts.layout>
-    <div class="max-w bg-white rounded-lg shadow-sm dark:bg-gray-900">
+    <div class="w-2xl bg-white rounded-lg shadow-sm dark:bg-gray-900">
         <a href="#">
             <img class="rounded-t-lg" src="/images/blog/image-1.jpg" alt="" />
         </a>
