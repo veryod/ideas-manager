@@ -28,6 +28,15 @@ class StoreIdeaRequest extends FormRequest
             'title' => ['required', 'string'],
             'description' => ['required', 'string'],
             'status' => ['required', Rule::enum(IdeaStatus::class)],
+            'links' => ['array'],
+            'links.*' => ['url', 'required', 'max:255'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'links.*' => 'All links must be a valid URL.',
         ];
     }
 }
