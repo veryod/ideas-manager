@@ -1,14 +1,14 @@
 <?php
 
+use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/ideas');
 
 Route::middleware('auth')->group(function () {
+    Route::resource('/ideas', IdeaController::class);
     Route::delete('/logout', [SessionsController::class, 'destroy']);
 });
 
