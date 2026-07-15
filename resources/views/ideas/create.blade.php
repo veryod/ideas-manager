@@ -1,3 +1,4 @@
+@vite(['resources/js/addLinks.js'])
 <x-layouts.layout>
     <div>
         <form action="/ideas" method="post" class="form w-2xl" autocomplete="off">
@@ -19,6 +20,9 @@
                     <option value="in_progress">In progress</option>
                     <option value="completed">Completed</option>
                 </select>
+            </div>
+            <div class="links-input">
+                <label for="link">Links</label>
             </div>
             <div class="actions">
                 <button class="form-btn" type="submit" data-test="create-btn">Create</button>
