@@ -4,7 +4,6 @@
         <form action="/ideas" method="post" class="form w-2xl" autocomplete="off">
             @csrf
             <x-auth.field name="title" label="Title" type="text" placeholder="Enter a title here..."></x-auth.field>
-
             <div class="field">
                 <label for="description">Description</label>
                 <textarea name="description" id="description" rows="6" placeholder="Enter a description here..."></textarea>
@@ -12,7 +11,6 @@
                     <div class="error flex text-red-500">{{ $message }}</div>
                 @enderror
             </div>
-
             <div class="field">
                 <label for="status">Status</label>
                 <select name="status" id="status" data-test="select-status">
@@ -22,8 +20,12 @@
                 </select>
             </div>
             <div class="links-input">
-                <label for="link">Links</label>
+                <label for="links">Links</label>
             </div>
+            <button class="add-link-btn font-semibold text-2xl text-gray-100 border w-full mb-4" type="button" data-test="add-link-btn">+</button>
+            @error('links.*')
+                <div class="error flex text-red-500 mb-4">{{ $message }}</div>
+            @enderror
             <div class="actions">
                 <button class="form-btn" type="submit" data-test="create-btn">Create</button>
             </div>

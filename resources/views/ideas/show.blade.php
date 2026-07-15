@@ -14,7 +14,9 @@
                 <div class="pb-6 font-semibold text-gray-300">
                     <h6 class="underline">Links</h6>
                     @foreach($idea->links as $link)
-                        <a href="{{ $link }}" target="_blank" class="px-2 my-2">- {{ $link }}</a>
+                        <div>
+                            <a href="{{ $link }}" target="_blank" class="px-2 my-2">- {{ $link }}</a>
+                        </div>
                     @endforeach
                 </div>
             @endif
