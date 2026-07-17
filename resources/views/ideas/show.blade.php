@@ -10,6 +10,21 @@
                 <div class="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-100 mb-2">#{{ $idea->status->label() }}</div>
                 <div class="px-2 text-sm font-semibold text-gray-300">{{ $idea->created_at->diffForHumans() }}</div>
             </div>
+            @if($idea->steps->count() > 0)
+                <div class="pb-6 font-semibold text-gray-300">
+                    <h6 class="underline">Steps</h6>
+                    @foreach($idea->steps as $step)
+                        <form action="/steps/{{ $step->id }}" method="post">
+                            @csrf
+                            @method('PATCH')
+                            <div class="flex items-center my-2">
+                                <input type="checkbox" class="checkbox-input completed-status-{{$step->completed}} bg-gray-800" onchange="this.form.submit()">
+                                <label class="px-2 font-medium dark:text-gray-300">{{ $step->description }}</label>
+                            </div>
+                        </form>
+                    @endforeach
+                </div>
+            @endif
             @if($idea->links->count() > 0)
                 <div class="pb-6 font-semibold text-gray-300">
                     <h6 class="underline">Links</h6>
