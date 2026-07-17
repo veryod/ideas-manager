@@ -29,7 +29,9 @@ class StoreIdeaRequest extends FormRequest
             'description' => ['required', 'string'],
             'status' => ['required', Rule::enum(IdeaStatus::class)],
             'links' => ['array'],
-            'links.*' => ['url', 'required', 'max:255'],
+            'links.*' => ['required', 'url', 'max:255'],
+            'steps' => ['array'],
+            'steps.*' => ['required', 'string', 'max:255']
         ];
     }
 
@@ -37,6 +39,7 @@ class StoreIdeaRequest extends FormRequest
     {
         return [
             'links.*' => 'All links must be a valid URL.',
+            'steps.*' => 'All steps must be valid text.',
         ];
     }
 }
