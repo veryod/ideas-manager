@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StepController;
 use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionsController;
@@ -10,6 +11,7 @@ Route::redirect('/', '/ideas');
 Route::middleware('auth')->group(function () {
     Route::resource('/ideas', IdeaController::class);
     Route::delete('/logout', [SessionsController::class, 'destroy']);
+    Route::patch('/steps/{step}', [StepController::class, 'update']);
 });
 
 // The only allowed routes for a user who isnt authenticated
