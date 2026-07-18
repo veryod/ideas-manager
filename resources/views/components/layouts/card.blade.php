@@ -2,7 +2,9 @@
 
 <a href="/ideas/{{ $id }}">
     <div class="max-w-sm rounded overflow-hidden shadow-lg bg-gray-900">
-        <img class="w-full" src="{{ $image_path }}">
+        @if($image_path != null)
+            <img class="w-full" src="{{ asset('storage/' . $image_path) }}">
+        @endif
         <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2 text-gray-300">{{ $title }}</div>
             <p class="text-gray-500 text-base">{{ $description }}</p>
