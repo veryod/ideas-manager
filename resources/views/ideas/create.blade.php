@@ -1,7 +1,7 @@
 @vite(['resources/js/addLinks.js', 'resources/js/addSteps.js'])
 <x-layouts.layout>
     <div>
-        <form action="/ideas" method="post" class="form w-2xl" autocomplete="off">
+        <form action="/ideas" method="post" class="form w-2xl" autocomplete="off" enctype="multipart/form-data">
             @csrf
             <div class="field">
                 <label for="title">Title</label>
@@ -25,7 +25,10 @@
                     <option value="completed">Completed</option>
                 </select>
             </div>
-
+            <div class="field">
+                <label for="image">Image</label>
+                <input type="file" name="image" id="image">
+            </div>
             <div class="steps-container">
                 <label for="steps">Steps</label>
             </div>
@@ -33,7 +36,6 @@
             @error('steps.*')
                 <div class="error flex text-red-500 mb-4">{{ $message }}</div>
             @enderror
-
             <div class="links-container">
                 <label for="links">Links</label>
             </div>
