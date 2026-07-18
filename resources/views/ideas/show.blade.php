@@ -1,8 +1,10 @@
 <x-layouts.layout>
     <div class="w-2xl bg-white rounded-lg shadow-sm dark:bg-gray-900">
-        <a href="#">
-            <img class="rounded-t-lg" src="/images/blog/image-1.jpg" alt="" />
-        </a>
+        @if($idea->image_path != null)
+            <a href="#">
+                <img class="rounded-t-lg" src="{{ asset('storage/' . $idea->image_path) }}" alt="" />
+            </a>
+        @endif
         <div class="p-5">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $idea->title }}</h5>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $idea->description }}</p>
@@ -17,9 +19,9 @@
                         <form action="/steps/{{ $step->id }}" method="post">
                             @csrf
                             @method('PATCH')
-                            <div class="flex items-center my-2">
-                                <input type="checkbox" class="checkbox-input completed-status-{{$step->completed}} bg-gray-800" onchange="this.form.submit()">
-                                <label class="px-2 font-medium dark:text-gray-300">{{ $step->description }}</label>
+                            <div class="flex my-2">
+                                <input type="checkbox" class="checkbox-input bg-gray-800" onchange="this.form.submit()" @if($step->completed) checked @endif>
+                                <label class="checkbox-label px-2 font-medium dark:text-gray-300">{{ $step->description }}</label>
                             </div>
                         </form>
                     @endforeach
